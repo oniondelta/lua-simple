@@ -1,7 +1,4 @@
---[[
-一般拼音轉寫成洋蔥注音雙拼
-rime 字典格式
---]]
+
 
 -- local file = io.open("input_pinyin.txt", "r")
 -- -- io.input(text)
