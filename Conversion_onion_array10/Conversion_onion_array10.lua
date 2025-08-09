@@ -11,20 +11,27 @@ rime 字典格式
 -- file:close()
 
 
+local function convert_to_upper(text)
+  if text == "" then return "" end
+  text = string.upper(text)
+  return text
+end
+
+
 local function convert_to_abc(text)
   if text == "" then return "" end
-  text = string.gsub(text, "1", "z")
-  text = string.gsub(text, "2", "x")
-  text = string.gsub(text, "3", "c")
-  text = string.gsub(text, "4", "a")
-  text = string.gsub(text, "5", "s")
-  text = string.gsub(text, "6", "d")
-  text = string.gsub(text, "7", "q")
-  text = string.gsub(text, "8", "w")
-  text = string.gsub(text, "9", "e")
-  text = string.gsub(text, "0", "f")
-  -- text = string.gsub(text, ".", "v")
-  -- text = string.gsub(text, "@", "v")
+  text = string.gsub(text, "0", "z")
+  text = string.gsub(text, "1", "x")
+  text = string.gsub(text, "2", "c")
+  text = string.gsub(text, "3", "v")
+  text = string.gsub(text, "4", "s")
+  text = string.gsub(text, "5", "d")
+  text = string.gsub(text, "6", "f")
+  text = string.gsub(text, "7", "w")
+  text = string.gsub(text, "8", "e")
+  text = string.gsub(text, "9", "r")
+  -- text = string.gsub(text, ".", "a")
+  -- text = string.gsub(text, "@", "a")
   text = string.gsub(text, "@", "")
   return text
 end
@@ -32,19 +39,19 @@ end
 
 local function convert_to_123(text)
   if text == "" then return "" end
-  text = string.gsub(text, "z", "1")
-  text = string.gsub(text, "x", "2")
-  text = string.gsub(text, "c", "3")
-  text = string.gsub(text, "a", "4")
-  text = string.gsub(text, "s", "5")
-  text = string.gsub(text, "d", "6")
-  text = string.gsub(text, "q", "7")
-  text = string.gsub(text, "w", "8")
-  text = string.gsub(text, "e", "9")
-  text = string.gsub(text, "f", "0")
-  -- text = string.gsub(text, "v", ".")
-  -- text = string.gsub(text, "v", "@")
-  -- text = string.gsub(text, "v", "")
+  text = string.gsub(text, "z", "0")
+  text = string.gsub(text, "x", "1")
+  text = string.gsub(text, "c", "2")
+  text = string.gsub(text, "v", "3")
+  text = string.gsub(text, "s", "4")
+  text = string.gsub(text, "d", "5")
+  text = string.gsub(text, "f", "6")
+  text = string.gsub(text, "w", "7")
+  text = string.gsub(text, "e", "8")
+  text = string.gsub(text, "f", "9")
+  -- text = string.gsub(text, "a", ".")
+  -- text = string.gsub(text, "a", "@")
+  -- text = string.gsub(text, "a", "")
   return text
 end
 
@@ -101,6 +108,9 @@ end
 
 
 
+
+-- local output_content = split_convert_concat(convert_to_upper, readFile('input_array10.txt'))
+-- writeFile('output_array10_upper.txt', output_content)
 
 local output_content = split_convert_concat(convert_to_abc, readFile('input_array10.txt'))
 writeFile('output_array10_abc.txt', output_content)
